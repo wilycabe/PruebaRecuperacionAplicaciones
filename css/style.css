@@ -1,0 +1,18 @@
+html{
+    background-color: #A5B7CA;
+}
+section{
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    margin: -100px 0 0 -100px; 
+    text-align:center;
+}
+img{
+    height: 50%;
+    width: 50%;
+}
+#registro, #seleccion_autores, #busqueda_libros{
+    background-color: #A5B7CA;
+}
+
