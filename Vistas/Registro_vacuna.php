@@ -16,10 +16,11 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="navbar-brand" href="/index.php">Inicio</a>
-                    <a class="nav-item nav-link active" href="/Vistas/Registro_autor.php">Registro de autores <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link active" href="/Vistas/Registro_libro.php">Registro de libros</a>
-                    <a class="nav-item nav-link active" href="/Vistas/Eliminacion_libro.php">Eliminar libros</a>
-                    <a class="nav-item nav-link active" href="/Vistas/Reporte_autor.php">Reportes</a>
+                    <a class="nav-item nav-link active" href="/Vistas/Registro_cliente.php">Registro de clientes <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href="/Vistas/Registro_mascota.php">Registro de mascotas</a>
+                    <a class="nav-item nav-link active" href="/Vistas/Registro_vacuna.php">Registro de vacunas</a>
+                    <a class="nav-item nav-link active" href="/Vistas/Buscar.php">Buscar</a>
+                    <a class="nav-item nav-link active" href="/Vistas/Reporte.php">Reportes</a>
                 </div>
             </div>
         </nav>

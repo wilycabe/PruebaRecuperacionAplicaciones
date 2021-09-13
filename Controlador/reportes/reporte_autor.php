@@ -5,7 +5,7 @@
 
         function Header() {
             $this->SetFont('Arial', '', 20);
-            $this->Cell(0, 10, 'Reporte de los libros dependiendo del autor', 0, 10,'C');
+            $this->Cell(0, 10, 'Reporte de las mascotas', 0, 10,'C');
         }
 
         function CargarDatos(){
@@ -16,50 +16,51 @@
 
             //Datos del autor
 
-            $this->SetFont('Arial', '', 15);
-            $this->cell(5);
-            $this->Cell(120, 9, utf8_decode('Datos sobre el autor'), 10, 10); 
-            $this->Ln();
-            $seleccion=(isset($_POST['cbx_autores_seleccion']))?$_POST['cbx_autores_seleccion']:"id mal ingresado";
-            $this->SetFont('Arial', '', 12);
-            $this->cell(10);
-            try{
-                $reporte="SELECT * FROM `autor` WHERE '$seleccion'=idAutor";
-                $resultado=$conexion->query($reporte);           
-                $autor= mysqli_fetch_row($resultado);
-                $this->Cell(120, 9, utf8_decode('- Identificador del autor: '.$autor[0].''), 10, 10);
-                $this->Cell(120, 9, utf8_decode('- Nombre del autor: '.$autor[1].''), 10, 10);
-                $this->Cell(120, 9, utf8_decode('- Apellido del autor: '.$autor[2].''), 10, 10);
-                $this->Cell(120, 9, utf8_decode('- Edad del autor: '.$autor[3].''), 10, 10);
-            }
-            catch (Exception $e){
-                die(mysqli_error($conexion));
-            }
+            // $this->SetFont('Arial', '', 15);
+            // $this->cell(5);
+            // $this->Cell(120, 9, utf8_decode('Datos sobre el autor'), 10, 10); 
+            // $this->Ln();
+            // $seleccion=(isset($_POST['cbx_autores_seleccion']))?$_POST['cbx_autores_seleccion']:"id mal ingresado";
+            // $this->SetFont('Arial', '', 12);
+            // $this->cell(10);
+            // try{
+            //     $reporte="SELECT * FROM `mascota` WHERE '$seleccion'=IdMascota";
+            //     $resultado=$conexion->query($reporte);           
+            //     $autor= mysqli_fetch_row($resultado);
+            //     $this->Cell(120, 9, utf8_decode('- Identificador de la mascota: '.$autor[0].''), 10, 10);
+            //     $this->Cell(120, 9, utf8_decode('- Id Mascota: '.$autor[1].''), 10, 10);
+            //     $this->Cell(120, 9, utf8_decode('- Alias Mascota: '.$autor[2].''), 10, 10);
+            //     $this->Cell(120, 9, utf8_decode('- Especie: '.$autor[3].''), 10, 10);
+            //     $this->Cell(120, 9, utf8_decode('- Raza: '.$autor[4].''), 10, 10);
+            // }
+            // catch (Exception $e){
+            //     die(mysqli_error($conexion));
+            // }
 
             //Cargar numero de libros del autor
 
-            $reporte="SELECT count(*) FROM `autor`";
-            $resultado=$conexion->query($reporte);
-            if ($row = $resultado->fetch_array()) {
-                $this->Cell(120, 9, ($row[0]), 10, 10);
-            }  
+            // $reporte="SELECT count(*) FROM `autor`";
+            // $resultado=$conexion->query($reporte);
+            // if ($row = $resultado->fetch_array()) {
+            //     $this->Cell(120, 9, ($row[0]), 10, 10);
+            // }  
               
             //
 
             //Guardar datos de los libros
 
-            $reporte="SELECT * FROM `libro` WHERE Autor_idAutor=$seleccion";
+            $reporte="SELECT * FROM `mascotas`";
             $resultado=$conexion->query($reporte);  
-            $libros = array();
+            $mascotas = array();
             while($datos= mysqli_fetch_assoc($resultado)){
-                $libros[] = $datos;
+                $mascotas[] = $datos;
             }
 
 
             //Crear tabla para los libros
 
-            $encabezado = array('Identificador','Nombre','Descripción','Número de páginas');  
-            $w = array(25, 60, 60, 45);
+            $encabezado = array('IdMascota','IdCliente','AliasMascota','Especie','Raza');  
+            $w = array(25,25,25,25,25);
 
             //Impresion cabecera
 
@@ -70,14 +71,14 @@
             
             //Impresion datos de los libros
 
-            foreach($libros as $fila){
+            foreach($mascotas as $fila){
                 $this->Ln();
-                $this->Cell($w[0], 6, $fila['idLibro'], 1);
-                $this->Cell($w[1], 6, utf8_decode($fila['nombre']), 1);
-                $this->Cell($w[2], 6, utf8_decode($fila['descripcion']), 1);
-                $this->Cell($w[3], 6, $fila['nro_paginas'], 1);
+                $this->Cell($w[0], 6, $fila['IdMascota'], 1);
+                $this->Cell($w[1], 6, utf8_decode($fila['IdCliente']), 1);
+                $this->Cell($w[2], 6, utf8_decode($fila['AliasMascota']), 1);
+                $this->Cell($w[3], 6, $fila['Especie'], 1);
+                $this->Cell($w[4], 6, $fila['Raza'], 1);
             }
-            
         }
     }
 

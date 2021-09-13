@@ -18,7 +18,7 @@
                     <a class="nav-item nav-link active" href="/Vistas/Registro_mascota.php">Registro de mascotas</a>
                     <a class="nav-item nav-link active" href="/Vistas/Registro_vacuna.php">Registro de vacunas</a>
                     <a class="nav-item nav-link active" href="/Vistas/Buscar.php">Buscar</a>
-                    <a class="nav-item nav-link active" href="/Vistas/Reporte_autor.php">Reportes</a>
+                    <a class="nav-item nav-link active" href="/Vistas/Reporte.php">Reportes</a>
                 </div>
             </div>
         </nav>
